@@ -18,20 +18,23 @@ export default function EnrolledCourses() {
       setEnrolledCourses(res);
     } catch (error) {
       console.log("Could not fetch enrolled courses.")
+      
     }
   };
   useEffect(() => {
     getEnrolledCourses();
   }, [])
+  console.log("enrolled courses",enrolledCourses);
 
   return (
-    <>
+    <div className="max-w-[75%] mx-auto">
+    
       <div className="text-3xl text-richblack-50">Enrolled Courses</div>
       {!enrolledCourses ? (
         <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
           <div className="spinner"></div>
         </div>
-      ) : !enrolledCourses.length ? (
+      ) : !enrolledCourses.courses.length ? (
         <p className="grid h-[10vh] w-full place-content-center text-richblack-5">
           You have not enrolled in any course yet.
           {/* TODO: Modify this Empty State */}
@@ -45,7 +48,7 @@ export default function EnrolledCourses() {
             <p className="flex-1 px-2 py-3">Progress</p>
           </div>
           {/* Course Names */}
-          {enrolledCourses.map((course, i, arr) => (
+          {enrolledCourses.courses.map((course, i, arr) => (
             <div
               className={`flex items-center border border-richblack-700 ${
                 i === arr.length - 1 ? "rounded-b-lg" : "rounded-none" 
@@ -87,6 +90,6 @@ export default function EnrolledCourses() {
           ))}
         </div>
       )}
-    </>
+    </div>
   )
 }

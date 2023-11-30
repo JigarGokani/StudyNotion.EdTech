@@ -28,7 +28,9 @@ const Course_Card = ({course, Height}) => {
           </div>
           <div className="flex flex-col gap-2 px-1 py-3">
             <p className="text-xl text-richblack-5">{course?.courseName}</p>
-            <p className="text- 2xl text-yellow-50 font-bold">
+            
+            <p className='text-yellow-50 text-xl tracking-wide'>
+              <span className='text-richblack-5'>By </span> 
                {course?.instructor?.firstName} {course?.instructor?.lastName}
             </p>
             <div className="flex items-center gap-2">
