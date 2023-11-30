@@ -1,5 +1,5 @@
 import React from "react"
-// import copy from "copy-to-clipboard"
+import copy from "copy-to-clipboard"
 import { toast } from "react-hot-toast"
 import { BsFillCaretRightFill } from "react-icons/bs"
 import { FaShareSquare } from "react-icons/fa"
@@ -23,7 +23,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
   } = course
 
   const handleShare = () => {
-    // copy(window.location.href)
+    copy(window.location.href)
     toast.success("Link copied to clipboard")
   }
 
