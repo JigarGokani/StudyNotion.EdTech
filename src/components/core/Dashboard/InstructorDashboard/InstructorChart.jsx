@@ -19,3 +19,14 @@ export default function InstructorChart({ courses }) {
     }
     return colors
   }
+
+   // Data for the chart displaying student information
+   const chartDataStudents = {
+    labels: courses.map((course) => course.courseName),
+    datasets: [
+      {
+        data: courses.map((course) => course.totalStudentsEnrolled),
+        backgroundColor: generateRandomColors(courses.length),
+      },
+    ],
+  }
