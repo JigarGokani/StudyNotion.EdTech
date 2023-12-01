@@ -57,7 +57,7 @@ export default function InstructorChart({ courses }) {
             },
         },
     },
-    aspectRatio: 2,
+    aspectRatio: 3,
 }
 
 
