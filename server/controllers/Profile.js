@@ -234,28 +234,31 @@ exports.updateDisplayPicture = async (req, res) => {
 exports.instructorDashboard = async (req, res) => {
 	try {
 		const id = req.user.id;
-		const courseData = await Course.find({instructor:id});
-		const courseDetails = courseData.map((course) => {
-			totalStudents = course?.studentsEnrolled?.length;
-			totalRevenue = course?.price * totalStudents;
-			const courseStats = {
-				_id: course._id,
-				courseName: course.courseName,
-				courseDescription: course.courseDescription,
-				totalStudents,
-				totalRevenue,
-			};
-			return courseStats;
-		});
-		res.status(200).json({
-			success: true,
-			message: "User Data fetched successfully",
-			data: courseDetails,
-		});
+	  const courseDetails = await Course.find({ instructor:id })
+	  console.log("coursedetail instructor ka",courseDetails);
+
+  
+	  const courseData = courseDetails.map((course) => {
+		const totalStudentsEnrolled = course.studentsEnrolled.length
+		const totalAmountGenerated = totalStudentsEnrolled * course.price
+  
+		// Create a new object with the additional fields
+		const courseDataWithStats = {
+		  _id: course._id,
+		  courseName: course.courseName,
+		  courseDescription: course.courseDescription,
+		  // Include other course properties as needed
+		  totalStudentsEnrolled,
+		  totalAmountGenerated,
+		}
+		console.log("Instructor pocha kya");
+  
+		return courseDataWithStats
+	  })
+  
+	  res.status(200).json({ courses: courseData })
 	} catch (error) {
-		return res.status(500).json({
-			success: false,
-			message: error.message,
-		});
+	  console.error(error)
+	  res.status(500).json({ message: "Server Error" })
 	}
-}
+  }
