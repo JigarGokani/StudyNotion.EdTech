@@ -30,3 +30,14 @@ export default function InstructorChart({ courses }) {
       },
     ],
   }
+
+   // Data for the chart displaying income information
+   const chartIncomeData = {
+    labels: courses.map((course) => course.courseName),
+    datasets: [
+      {
+        data: courses.map((course) => course.totalAmountGenerated),
+        backgroundColor: generateRandomColors(courses.length),
+      },
+    ],
+  }
