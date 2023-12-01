@@ -71,3 +71,13 @@ export default function InstructorChart({ courses }) {
         >  Income
         </button>
       </div>
+      <div className="relative mx-auto aspect-square h-full w-full">
+        {/* Render the Pie chart based on the selected chart */}
+        <Pie
+          data={currChart === "students" ? chartDataStudents : chartIncomeData}
+          options={options}
+        />
+      </div>
+    </div>
+  )
+}
