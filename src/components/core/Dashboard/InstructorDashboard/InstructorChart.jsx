@@ -41,3 +41,8 @@ export default function InstructorChart({ courses }) {
       },
     ],
   }
+
+   // Options for the chart
+   const options = {
+    maintainAspectRatio: false,
+  }
