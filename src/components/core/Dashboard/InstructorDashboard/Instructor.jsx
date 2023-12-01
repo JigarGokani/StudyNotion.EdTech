@@ -40,7 +40,7 @@ export default function Instructor() {
     console.log("Toal no. of students for instructor dashboard",totalStudents);
   
     return (
-        <div>
+        <div className='max-w-[75%] mx-auto'>
         <div className="space-y-2">
           <h1 className="text-2xl font-bold text-richblack-5">
             Hi {user?.firstName} 👋
@@ -53,7 +53,7 @@ export default function Instructor() {
           <div className="spinner"></div>
         ) : courses.length > 0 ? (
           <div>
-            <div className="my-4 flex h-[450px] space-x-4">
+            <div className="my-4 flex h-[500px] space-x-4">
               {/* Render chart / graph */}
               {totalAmount > 0 || totalStudents > 0 ? (
                 <InstructorChart courses={instructorData} />

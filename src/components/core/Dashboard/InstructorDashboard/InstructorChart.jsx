@@ -52,12 +52,12 @@ export default function InstructorChart({ courses }) {
                 boxHeight: 10,
                 padding: 20,
                 font: {
-                    size: 12,
+                    size: 15,
                 },
             },
         },
     },
-    aspectRatio: 3,
+    aspectRatio: 2,
 }
 
 
