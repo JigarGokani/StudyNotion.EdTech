@@ -4,6 +4,7 @@ const {uploadImageToCloudinary} = require("../utils/imageUploader");
 const CourseProgress = require("../models/CourseProgress")
 const mongoose = require("mongoose")
 const { convertSecondsToDuration } = require("../utils/secToDuration")
+const Course = require("../models/Course")
 
 
 
@@ -234,6 +235,7 @@ exports.updateDisplayPicture = async (req, res) => {
 exports.instructorDashboard = async (req, res) => {
 	try {
 		const id = req.user.id;
+		console.log("instructo ki id ye he bhai",id);
 	  const courseDetails = await Course.find({ instructor:id })
 	  console.log("coursedetail instructor ka",courseDetails);
 
