@@ -34,7 +34,7 @@ export default function EnrolledCourses() {
         <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
           <div className="spinner"></div>
         </div>
-      ) : !enrolledCourses.courses.length ? (
+      ) : !enrolledCourses.length ? (
         <p className="grid h-[10vh] w-full place-content-center text-richblack-5">
           You have not enrolled in any course yet.
           {/* TODO: Modify this Empty State */}
@@ -42,15 +42,15 @@ export default function EnrolledCourses() {
       ) : (
         <div className="my-8 text-richblack-5">
           {/* Headings */}
-          <div className="flex rounded-t-lg bg-richblack-500 ">
+          <div className="flex rounded-t-lg bg-richblack-500 gap-x-64">
             <p className="w-[45%] px-5 py-3">Course Name</p>
-            <p className="w-1/4 px-2 py-3">Duration</p>
+            {/* <p className="w-1/4 px-2 py-3">Duration</p> */}
             <p className="flex-1 px-2 py-3">Progress</p>
           </div>
           {/* Course Names */}
-          {enrolledCourses.courses.map((course, i, arr) => (
+          {enrolledCourses.map((course, i, arr) => (
             <div
-              className={`flex items-center border border-richblack-700 ${
+              className={`flex items-center border border-richblack-700 gap-x-64 ${
                 i === arr.length - 1 ? "rounded-b-lg" : "rounded-none" 
               }`}
               key={i}
@@ -59,7 +59,7 @@ export default function EnrolledCourses() {
                 className="flex w-[45%] cursor-pointer items-center gap-4 px-5 py-3"
                 onClick={() => {
                   navigate(
-                    `/view-course/${course?._id}/section/${course.courseContent?.[0]?._id}/sub-section/${course.courseContent?.[0]?.subSection?.[0]?._id}`
+                    `/view-course/${course?._id}/section/${course.courseContent?.[0]?._id}/sub-section/${course.courseContent?.[0]?.subSection?.[0]._id}`
                   )
                 }}
               >
@@ -77,7 +77,7 @@ export default function EnrolledCourses() {
                   </p>
                 </div>
               </div>
-              <div className="w-1/4 px-2 py-3">{course?.totalDuration}</div>
+              {/* <div className="w-1/4 px-2 py-3">{course?.totalDuration}</div> */}
               <div className="flex w-1/5 flex-col gap-2 px-2 py-3">
                 <p>Progress: {course.progressPercentage || 0}%</p>
                 <ProgressBar

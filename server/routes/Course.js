@@ -47,6 +47,11 @@ const {
   getAllRating,
 } = require("../controllers/RatingAndReviews")
 
+
+const {
+  updateCourseProgress
+} = require("../controllers/courseProgress");
+
 //demo
 // const { isDemo } = require("../middlewares/demo");
 
@@ -83,10 +88,13 @@ router.get("/getInstructorCourses", auth, isInstructor, getInstructorCourses)
 router.post("/getFullCourseDetails", auth, getFullCourseDetails)
 // Delete a Course
 router.delete("/deleteCourse",auth, deleteCourse)
+
 // Search Courses
 // router.post("/searchCourse", searchCourse);
 //mark lecture as complete
 // router.post("/updateCourseProgress", auth, isStudent, markLectureAsComplete);
+router.post("/updateCourseProgress", auth, isStudent, updateCourseProgress);
+
 
 
 
