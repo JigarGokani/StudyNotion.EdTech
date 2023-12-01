@@ -68,4 +68,6 @@ export default function InstructorChart({ courses }) {
               ? "bg-richblack-700 text-yellow-50"
               : "text-yellow-400"
           }`}
-        >
+        >  Income
+        </button>
+      </div>
