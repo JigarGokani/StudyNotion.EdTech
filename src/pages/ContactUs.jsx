@@ -1,4 +1,6 @@
 import React from "react"
+import Footer from "../components/comman/Footer"
+import ReviewSlider from "../components/comman/ReviewSlider"
 
 // import Footer from "../components/common/Footer"
 import ContactDetails from "../components/ContactPage/ContactDetails"
@@ -25,7 +27,15 @@ const Contact = () => {
           Reviews from other learners
         </h1>
         
+
       </div>
+      <div className=" mx-auto my-20  flex-col items-center justify-between gap-8 bg-richblack-900 text-white" >
+        <ReviewSlider/>
+
+      </div>
+      
+      {/* Footer */}
+      <Footer />
       {/* <Footer /> */}
     </div>
   )
