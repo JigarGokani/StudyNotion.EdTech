@@ -10,7 +10,7 @@ const {
   changePassword,
 } = require("../controllers/Auth")
 
-// const {isDemo}=require("../middlewares/demo");
+const {isDemo}=require("../middlewares/demo");
 const {
   resetPasswordToken,
   resetPassword,
@@ -34,7 +34,7 @@ router.post("/signup", signup)
 router.post("/sendotp", sendotp)
 
 // Route for Changing the password
-router.post("/changepassword", auth, changePassword)
+router.post("/changepassword", auth,isDemo, changePassword)
 
 // ********************************************************************************************************
 //                                      Reset Password
