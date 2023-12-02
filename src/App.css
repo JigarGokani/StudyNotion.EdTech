@@ -276,15 +276,13 @@ details > summary::-webkit-details-marker {
     height: calc(100% + var(--border-width) * 2);
     background: linear-gradient(
       60deg,
-      hsl(224, 85%, 66%),
-      hsl(269, 85%, 66%),
-      hsl(314, 85%, 66%),
-      hsl(359, 85%, 66%),
-      hsl(44, 85%, 66%),
-      hsl(89, 85%, 66%),
-      hsl(134, 85%, 66%),
-      hsl(179, 85%, 66%)
-    );
+      hsl(30, 20%, 40%),
+      hsl(150, 20%, 40%),
+      hsl(240, 20%, 40%),
+      hsl(330, 20%, 40%),
+      hsl(60, 20%, 40%)
+    );  
+    
     background-size: 300% 300%;
     background-position: 0 50%;
     border-radius: calc(2 * var(--border-width));

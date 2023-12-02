@@ -132,6 +132,7 @@ exports.getEnrolledCourses = async (req, res) => {
 			populate: {
 			  path: "subSection",
 			},
+			
 		  },
 		})
 		.exec()
@@ -154,6 +155,8 @@ exports.getEnrolledCourses = async (req, res) => {
 		  courseID: userDetails.courses[i]._id,
 		  userId: userId,
 		})
+		.sort({createdAt:-1})
+
 		courseProgressCount = courseProgressCount?.completedVideos.length
 		if (SubsectionLength === 0) {
 		  userDetails.courses[i].progressPercentage = 100
@@ -173,9 +176,11 @@ exports.getEnrolledCourses = async (req, res) => {
 		  message: `Could not find user with id: ${userDetails}`,
 		})
 	  }
+	  let c = userDetails.courses.reverse()
 	  return res.status(200).json({
 		success: true,
-		data: userDetails.courses,
+		data: c,
+
 	  })
 	} catch (error) {
 	  return res.status(500).json({

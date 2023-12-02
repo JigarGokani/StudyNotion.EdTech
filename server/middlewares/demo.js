@@ -7,6 +7,7 @@ exports.isDemo = async (req, res, next)=> {
         return res.status(401).json({
             success: false,
             message: "This is a Demo User",
+            
         });
     }
     next();
